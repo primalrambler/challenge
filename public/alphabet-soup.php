@@ -37,7 +37,7 @@
 	      	</div>
   		</div>
 
-	<form class="form-horizontal" name="soupInput">
+	<form class="form-horizontal" name="soupInput" method="POST">
 	  <div class="form-group">
 	    <label for="soup" class="col-sm-2 control-label">String to Modify</label>
 	    <div class="col-sm-8">
