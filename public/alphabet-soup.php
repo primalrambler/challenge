@@ -1,9 +1,19 @@
 <?php
 
+$wordArray = [];
+
+(isset($_POST['soup'])) ? $wordArray = explode(" ", $_POST['soup']) : null;
 
 
 
+foreach ($wordArray as $words => $word) {
+	$tempArray = str_split($word);
+	natcasesort($tempArray);
+	$wordArray[$words] = implode("", $tempArray);
+	// echo $word.PHP_EOL;
+}
 
+$phpString = implode(" ", $wordArray);
 
 ?>
 
@@ -37,16 +47,16 @@
 	      	</div>
   		</div>
 
-	<form class="form-horizontal" name="soupInput" method="POST">
+	<form class="form-horizontal" method="POST">
 	  <div class="form-group">
 	    <label for="soup" class="col-sm-2 control-label">String to Modify</label>
 	    <div class="col-sm-8">
-	      <input type="text" class="form-control" id="soup" placeholder="Type Your String Here">
+	      <input type="text" class="form-control" name="soup" id="soup" placeholder="Type Your String Here">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	    <div class="col-sm-offset-2 col-sm-10">
-	      <button type="submit" class="btn btn-default" id="soupIt">Submit</button>
+	      <button type="submit" class="btn btn-default" id="soupIt">FOR PHP LOGIC</button>
 	    </div>
 	  </div>
 	</form>
@@ -59,7 +69,7 @@
       	<h1 id="jquerySoup">test</h1>
       	<p></p>
       	<h2>PHP Result</h2>
-      	<h1 id="phpSoup">test</h1>
+      	<h1 id="phpSoup"><?= $phpString ?> </h1>
       	<p></p>
     </div>
 
